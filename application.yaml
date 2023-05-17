@@ -5,19 +5,31 @@ metadata:
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: https://github.com/rembun/argocd.git
     targetRevision: HEAD
     path: dev
+    helm:
+      parameters:
+      - name: username
+        value: argocd-github-secret
+        valueFrom:
+          secretKeyRef:
+            name: argocd-github-secret
+            key: username
+      - name: password
+        value: argocd-github-secret
+        valueFrom:
+          secretKeyRef:
+            name: argocd-github-secret
+            key: password
   destination: 
     server: https://kubernetes.default.svc
-    namespace: myapp
-
+    namespace: web-application
   syncPolicy:
     syncOptions:
     - CreateNamespace=true
-
     automated:
       selfHeal: true
       prune: true
+
