@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: git@github.com:rembun/argocd.git
     targetRevision: HEAD
-    path: environments/dev/my-app
+    path: stagging
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
