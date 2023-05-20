@@ -1,35 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: myapp-argo-application
+  name: my-app-dev
   namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: https://github.com/rembun/argocd.git
+    repoURL: git@github.com:rembun/argocd.git
     targetRevision: HEAD
     path: dev
-    helm:
-      parameters:
-      - name: username
-        value: argocd-github-secret
-        valueFrom:
-          secretKeyRef:
-            name: argocd-github-secret
-            key: username
-      - name: password
-        value: argocd-github-secret
-        valueFrom:
-          secretKeyRef:
-            name: argocd-github-secret
-            key: password
-  destination: 
+  destination:
     server: https://kubernetes.default.svc
-    namespace: web-application
   syncPolicy:
-    syncOptions:
-    - CreateNamespace=true
     automated:
-      selfHeal: true
       prune: true
-
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - Validate=true
+      - CreateNamespace=false
+      - PrunePropagationPolicy=foreground
+      - PruneLast=true
