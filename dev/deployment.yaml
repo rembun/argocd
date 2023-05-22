@@ -1,19 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: myapp-web
+  namespace: myapp
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: myapp-web
   replicas: 2
   template:
     metadata:
       labels:
-        app: myapp
+        app: myapp-web
     spec:
       containers:
-      - name: myapp
+      - name: myapp-web
         image: rembun/devops:argocd-website
         ports:
         - containerPort: 8080

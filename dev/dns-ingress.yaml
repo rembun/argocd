@@ -1,7 +1,9 @@
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: myapp-ingress
+  namespace: myapp
 spec:
   rules:
   - host: web.kaa.co.za
