@@ -3,23 +3,21 @@ kind: Application
 metadata:
   name: my-app-web
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
+
   source:
     repoURL: git@github.com:rembun/argocd.git
     targetRevision: HEAD
     path: dev
-  destination:
+  destination: 
     server: https://kubernetes.default.svc
+    namespace: myapp-v1
+
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-      allowEmpty: false
     syncOptions:
-      - Validate=true
-      - CreateNamespace=false
-      - PrunePropagationPolicy=foreground
-      - PruneLast=true
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
