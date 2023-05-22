@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: myapp-web
-  namespace: myapp
+  namespace: myapp-v1
 spec:
   selector:
     matchLabels:
