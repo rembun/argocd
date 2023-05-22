@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
       - name: myapp-web
-        image: nginx:latest
+        image: nginx:latest   # Replace with the correct Nginx image
         ports:
         - containerPort: 8080
-      imagePullSecrets:
-        - name: dockerhub-secret
+
