@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: git@github.com:rembun/argocd.git
     targetRevision: HEAD
-    path: my-app-prod
+    path: production
   destination:
     server: https://kubernetes.default.svc
   syncPolicy:
