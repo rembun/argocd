@@ -31,4 +31,3 @@ spec:
         - name: nfs-share
           persistentVolumeClaim:
             claimName: nfs-pvc
-
