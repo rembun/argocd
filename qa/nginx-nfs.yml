@@ -22,13 +22,12 @@ spec:
         ports:
           - name: web
             containerPort: 80
-      imagePullSecrets:
-        - name: dockerhub-argocd
         volumeMounts:
           - name: nfs-share
             mountPath: /usr/share/nginx/html
+      imagePullSecrets:
+        - name: dockerhub-argocd
       volumes:
         - name: nfs-share
           persistentVolumeClaim:
             claimName: nfs-pvc
-
