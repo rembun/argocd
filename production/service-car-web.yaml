@@ -4,7 +4,7 @@ metadata:
   name: nginx-service-prod
   namespace: my-app-prod
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: nginx-1
   ports:
