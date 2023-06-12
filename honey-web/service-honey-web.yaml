@@ -4,7 +4,7 @@ metadata:
   name: nginx-service-honey-web
   namespace: my-app-web
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: my-app-web
   ports:
