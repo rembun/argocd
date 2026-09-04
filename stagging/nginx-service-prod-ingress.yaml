@@ -15,7 +15,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: nginx
+                name: nginx-service-stagging
                 port:
                   number: 80
   tls:

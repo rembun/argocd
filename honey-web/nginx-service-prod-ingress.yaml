@@ -15,7 +15,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: my-app-web
+                name: nginx-service-honey-web
                 port:
                   number: 80
   tls:
