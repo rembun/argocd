@@ -4,12 +4,10 @@ metadata:
   name: nginx-service-prod
   namespace: my-app-prod
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     app: nginx-1
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-      nodePort: 30005  # You can choose any available port between 30000-32767
-
