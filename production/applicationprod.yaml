@@ -9,7 +9,7 @@ metadata:
 spec:
   project: web
   source:
-    repoURL: git@github.com:rembun/argocd.git
+    repoURL: https://github.com/rembun/argocd.git 
     targetRevision: HEAD
     path: production
   destination:
