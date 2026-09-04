@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-prod-tls
+  namespace: my-app-prod
+spec:
+  secretName: nginx-prod-tls
+  duration: 8760h
+  renewBefore: 720h
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  dnsNames:
+    - nginx-prod.vega.com
+  issuerRef:
+    name: vega-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io

@@ -1,0 +1,18 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-stg-tls
+  namespace: my-app-dev
+spec:
+  secretName: nginx-stg-tls
+  duration: 8760h
+  renewBefore: 720h
+  privateKey:
+    algorithm: RSA
+    size: 2048
+  dnsNames:
+    - nginx-stg.vega.com
+  issuerRef:
+    name: vega-ca-issuer
+    kind: ClusterIssuer
+    group: cert-manager.io
