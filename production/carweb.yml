@@ -19,7 +19,7 @@ spec:
       containers:
         - name: nginx-1
           imagePullPolicy: IfNotPresent
-          image: rembun/devops:car-web
+          image: rembun/devops:web-001
           ports:
             - containerPort: 80
       imagePullSecrets:
