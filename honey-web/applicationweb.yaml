@@ -14,6 +14,7 @@ spec:
     path: honey-web
   destination:
     server: https://kubernetes.default.svc
+    amespace: my-app-web
   syncPolicy:
     automated:
       prune: true
