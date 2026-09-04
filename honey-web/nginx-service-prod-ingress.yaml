@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-service-honey-web
+  namespace: my-app-web
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nginx-web.vega.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: my-app-web
+                port:
+                  number: 80
+  tls:
+    - secretName: nginx-web-tls
+      hosts:
+        - nginx-web.vega.com

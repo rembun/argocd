@@ -7,9 +7,9 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: web
   source:
-    repoURL: git@github.com:rembun/argocd.git
+    repoURL: https://github.com/rembun/argocd.git 
     targetRevision: HEAD
     path: stagging
   destination:
@@ -21,6 +21,6 @@ spec:
       allowEmpty: false
     syncOptions:
       - Validate=true
-      - CreateNamespace=false
+      - CreateNamespace=true
       - PrunePropagationPolicy=foreground
       - PruneLast=true
